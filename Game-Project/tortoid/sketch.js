@@ -71,6 +71,10 @@ class Avatar {
         fill("black");
         ellipse(this.x+8,this.y-30,4,4);
         ellipse(this.x-8,this.y-30,4,4);
+        //shell design
+        stroke("brown");
+        strokeWeight(2);
+        line(this.x-12,this.y-5, this.x-5, this.y-15);
 
         // line(this.x,this.y, this.x, this.y+80);
         // line(this.x, this.y+80, this.x-40, this.y+120);
