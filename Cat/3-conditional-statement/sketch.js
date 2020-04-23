@@ -34,10 +34,22 @@ class Cat {
 
 	// draw a ball on the screen at x,y
 	drawCat(){
-    	noStroke();
+    push();
+    stroke(138, 101, 37);
+    strokeWeight(1);
+    line(this.x-25,this.y-8,this.x-27,this.y-13);
+    line(this.x-23,this.y-8,this.x-23,this.y-13);
+    line(this.x-21,this.y-8,this.x-19,this.y-13);
+    line(this.x-25,this.y+8,this.x-27,this.y+13);
+    line(this.x-23,this.y+8,this.x-23,this.y+13);
+    line(this.x-21,this.y+8,this.x-19,this.y+13);
+    pop();
+
+      noStroke();
     	fill(232, 191, 109);
 		  ellipse(this.x,this.y,35,25);
       ellipse(this.x-20,this.y,18,18);
+
       push();
       stroke(232, 191, 109);
       noFill();
@@ -46,18 +58,17 @@ class Cat {
       bezier(this.x+119/6, this.y+286/6, this.x+294/6, this.y+264/6, this.x+138/6, this.y+157/6, this.x+342/6, this.y+175/6);
       pop();
 
-// this isn't WORKING!!!!!!!!!!
-      // push();
-      // stroke(0);
-      // strokeWeight(2);
-      // line(this.x-20,this.y,this.x-40,this.y-50);
-      // line(10,100,200,50);
-      // pop();
+      push();
+      noStroke();
+      fill(138, 101, 37);
+      ellipse(this.x-23,this.y-3,4,4);
+      ellipse(this.x-23,this.y+3,4,4);
+      pop();
 	}
 
 	//update the location of the ball, so it moves across the screen
 	moveCat(){
-		this.x = this.x+ this.speed;
+    this.x = this.x+ this.speed;
 		this.y = this.y+.5;
 	}
 
