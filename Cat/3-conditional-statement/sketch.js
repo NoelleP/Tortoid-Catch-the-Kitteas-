@@ -45,6 +45,12 @@ class Cat {
       translate(-5,-45);
       bezier(this.x+119/6, this.y+286/6, this.x+294/6, this.y+264/6, this.x+138/6, this.y+157/6, this.x+342/6, this.y+175/6);
       pop();
+      push();
+      stroke(0);
+      strokeWeight(2);
+      line(this.x-20,this.y,this.x-40,this.y-50);
+      line(10,100,200,50);
+      pop();
 	}
 
 	//update the location of the ball, so it moves across the screen
