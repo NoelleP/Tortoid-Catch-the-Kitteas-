@@ -13,7 +13,8 @@ let me;
 
 
 function setup() {
-  createCanvas(500, 400);
+  createCanvas(400, 500);
+
 
   //make one avatar called me
   me = new Avatar(width/2, 300, 3);
@@ -65,16 +66,32 @@ class Avatar {
         //tail
         triangle(this.x, this.y+32, this.x+15, this.y, this.x-15, this.y);
         //shell
-        fill("green");
+        fill(45,143,45);
 		    ellipse(this.x,this.y,40,50);
         //eyes
         fill("black");
         ellipse(this.x+8,this.y-30,4,4);
         ellipse(this.x-8,this.y-30,4,4);
         //shell design
-        stroke("brown");
-        strokeWeight(2);
-        line(this.x-12,this.y-5, this.x-5, this.y-15);
+        stroke(102,102,51);
+        strokeWeight(1);
+        line(this.x-9,this.y-3.75, this.x-3.75, this.y-11.25);
+        line(this.x+9,this.y+3.75, this.x+3.75, this.y+11.25);
+        line(this.x+9,this.y-3.75, this.x+3.75, this.y-11.25);
+        line(this.x-9,this.y+3.75, this.x-3.75, this.y+11.25);
+        line(this.x-3.75, this.y+11.25, this.x+3.75, this.y+11.25)
+        line(this.x-3.75, this.y-11.25, this.x+3.75, this.y-11.25)
+        line(this.x-9, this.y-3.75, this.x-9, this.y+3.75)
+        line(this.x+9, this.y-3.75, this.x+9, this.y+3.75)
+        line(this.x+9, this.y-3.75, this.x+18, this.y-8)
+        line(this.x-9, this.y-3.75, this.x-18, this.y-8)
+        line(this.x-3.75, this.y-11.25, this.x-7, this.y-23)
+        line(this.x-3.75, this.y+11.25, this.x-7, this.y+23)
+        line(this.x+3.75, this.y-11.25, this.x+7, this.y-23)
+        line(this.x+3.75, this.y+11.25, this.x+7, this.y+23)
+        line(this.x+9, this.y+3.75, this.x+18, this.y+8)
+        line(this.x-9, this.y+3.75, this.x-18, this.y+8)
+
 
         // line(this.x,this.y, this.x, this.y+80);
         // line(this.x, this.y+80, this.x-40, this.y+120);
