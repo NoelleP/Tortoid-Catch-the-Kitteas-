@@ -153,12 +153,4 @@ class Avatar {
 
   }
 
-  bounceBall(){
-    if (this.x >= me.x-15 && this.x <= me.x+15 && this.y > me.y-40 && this.y < me.y+40){
-      this.speed = -this.speed;
-            mySound.setVolume(0.1);
-            mySound.play();
-    }
-  }
-
 }
