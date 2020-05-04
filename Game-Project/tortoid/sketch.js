@@ -1,7 +1,6 @@
 let cats = [];
-
-
 let me;
+let calicos = [];
 
 
 function setup() {
@@ -25,12 +24,23 @@ function draw(){
       console.log(cats);
     }
 
+    if (frameCount % 70 == 0) {
+   let  d = new Calico(random(0,width), height-500, -3);
+   calicos.push(d);
+   console.log(calicos);
+ }
+
+
 
 	for (let i = 0; i < cats.length; i++) {
 	 	      cats[i].drawCat();
        	  cats[i].moveCat();
         	cats[i].bounceCat();
 	  }
+    for (let i = 0; i < calicos.length; i++) {
+           calicos[i].drawCalico();
+           calicos[i].moveCalico();
+     }
 
 }
 
@@ -107,7 +117,71 @@ class Avatar {
   }
 
 }
+class Calico {
 
+	//every ball needs an x value, a y value, and a speed
+	constructor(x,y, speed){
+		this.x = x;
+    this.y = y;
+    this.speed = speed;
+	}
+
+	// draw a ball on the screen at x,y
+	drawCalico(){
+    //whiskers
+    push();
+    stroke(0);
+    strokeWeight(1);
+    line(this.x-8,this.y-25+42,this.x-13,this.y-27+42);
+    line(this.x-8,this.y-23+42,this.x-13,this.y-23+42);
+    line(this.x-8,this.y-21+42,this.x-13,this.y-19+42);
+    line(this.x+8,this.y-25+42,this.x+13,this.y-27+42);
+    line(this.x+8,this.y-23+42,this.x+13,this.y-23+42);
+    line(this.x+8,this.y-21+42,this.x+13,this.y-19+42);
+    pop();
+
+//head + body
+      noStroke();
+    	fill(255);
+		  ellipse(this.x,this.y,25,35);
+      ellipse(this.x,this.y+20,18,18);
+
+//tail
+      push();
+      stroke(255);
+      noFill();
+      strokeWeight(8);
+      translate(-30,-65);
+      bezier(this.x+286/6, this.y+119/6, this.x+264/6, this.y+294/6, this.x+157/6, this.y+138/6, this.x+175/6, this.y+342/6);
+      pop();
+
+//eyes
+      push();
+      noStroke();
+      fill(0);
+      ellipse(this.x-4,this.y+23,4,4);
+      ellipse(this.x+3,this.y+23,4,4);
+      pop();
+
+//spots
+push();
+noStroke();
+fill(163, 163, 163);
+ellipse(this.x-4,this.y,10,8);
+fill(232, 191, 109);
+ellipse(this.x+5,this.y-10,6,6);
+fill(138, 101, 37);
+ellipse(this.x+5,this.y+10,8,10);
+pop();
+	}
+
+	//update the location of the ball, so it moves across the screen
+	moveCalico(){
+    this.x = this.x;
+		this.y = this.y- this.speed;
+	}
+
+}
 
 
 class Cat {
