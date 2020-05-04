@@ -1,30 +1,20 @@
-//create an empty array called balls
 let cats = [];
 
-//create a variable to hold your avatar
-let me;
 
-// let mySound;
-//
-// function preload() {
-//   soundFormats('mp3', 'ogg');
-//   mySound = loadSound('squawk.mp3');
-// }
+let me;
 
 
 function setup() {
   createCanvas(400, 500);
 
 
-  //make one avatar called me
   me = new Avatar(width/2, 300, 3);
 
 }
 
 function draw(){
 	background(220);
-  // fill("yellow")
-  // ellipse(100,100,100,100)
+
 
   me.drawMe();
   me.moveMe();
@@ -32,10 +22,10 @@ function draw(){
   if (frameCount % 55 == 0) {
       let  c = new Cat(random(0,width), height-500, -3);
       cats.push(c);
-      console.log(cats); //print the balls array to the console
+      console.log(cats);
     }
 
-//	draw all the balls in that array
+
 	for (let i = 0; i < cats.length; i++) {
 	 	      cats[i].drawCat();
        	  cats[i].moveCat();
@@ -44,16 +34,16 @@ function draw(){
 
 }
 
-//avatar class
+
 class Avatar {
 
-	constructor(x,y, speed){ //every avatar needs an x value, a y value, and a speed
+	constructor(x,y, speed){
 		    this.x = x;
     		this.y = y;
         this.speed = speed;
 	}
 
-	drawMe(){  // draw the running person
+	drawMe(){
     		noStroke();
         fill(143, 199, 70);
         //arms
@@ -95,11 +85,11 @@ class Avatar {
 	}
 
 	moveMe(){
-    if (keyIsDown(UP_ARROW)) { //if you hold the up arrow, move up by speed
+    if (keyIsDown(UP_ARROW)) {
        this.y -= this.speed;
     }
 
-    if (keyIsDown(DOWN_ARROW)) { // if you hold the down arrow, move down by speed
+    if (keyIsDown(DOWN_ARROW)) {
         this.y += this.speed;
       }
         if(keyIsDown(LEFT_ARROW)){
@@ -119,17 +109,17 @@ class Avatar {
 }
 
 
-//ball class from which to create new balls with similar properties.
+
 class Cat {
 
-	//every ball needs an x value, a y value, and a speed
+
 	constructor(x,y, speed){
 		this.x = x;
     this.y = y;
     this.speed = speed;
 	}
 
-	// draw a ball on the screen at x,y
+
   drawCat(){
     //whiskers
     push();
@@ -167,23 +157,20 @@ class Cat {
       pop();
   }
 
-	//update the location of the ball, so it moves across the screen
+
 	moveCat(){
     this.x = this.x;
     this.y = this.y- this.speed;
 	}
 
-//if the ball hits the person, change the speed value to negative (send it in the opposite direction)
+
   	bounceCat(){
     		if (this.x >= me.x-15 && this.x <= me.x+15 && this.y > me.y-40 && this.y < me.y+40){
       			this.speed = -this.speed;
             noLoop();
-            // mySound.setVolume(0.1);
-            // mySound.play();
+
             noStroke();
 
-
-  //text showing mouse coordinates
   fill(255, 255, 255);
   textSize(50);
   text("Game Over", 50, 250);
