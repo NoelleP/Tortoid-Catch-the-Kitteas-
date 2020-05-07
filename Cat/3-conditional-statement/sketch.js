@@ -1,6 +1,7 @@
 let cats = [];
 let me;
 let calicos = [];
+let points = 0;
 
 
 function setup() {
@@ -18,14 +19,14 @@ function draw(){
   me.drawMe();
   me.moveMe();
 
-  if (frameCount % 55 == 0) {
+  if (frameCount % 30 == 0) {
       let  c = new Cat(random(0,width), height-500, -3);
       cats.push(c);
       console.log(cats);
     }
 
-    if (frameCount % 70 == 0) {
-   let  d = new Calico(random(0,width), height-500, -3);
+    if (frameCount % 50 == 0) {
+   let  d = new Calico(random(0,width), height-500, -3, false);
    calicos.push(d);
    console.log(calicos);
  }
@@ -40,8 +41,14 @@ function draw(){
     for (let i = 0; i < calicos.length; i++) {
            calicos[i].drawCalico();
            calicos[i].moveCalico();
+           calicos[i].bounceCalico();
      }
 
+fill(255);
+rect(0,0,50,20);
+textSize(20);
+fill(0);
+text(points,18,17);
 }
 
 
@@ -120,10 +127,11 @@ class Avatar {
 class Calico {
 
 	//every ball needs an x value, a y value, and a speed
-	constructor(x,y, speed){
+	constructor(x,y, speed, scored){
 		this.x = x;
     this.y = y;
     this.speed = speed;
+    this.scored = scored;
 	}
 
 	// draw a ball on the screen at x,y
@@ -181,6 +189,18 @@ pop();
 		this.y = this.y- this.speed;
 	}
 
+  //point system
+  bounceCalico(){
+      		if (this.x >= me.x-15 && this.x <= me.x+15 && this.y > me.y-40 && this.y < me.y+40 && this.scored==false){
+            if(points>=0){
+              points = points+1;
+              this.scored=true;
+            }
+            else{
+              points = 0.1;
+            }
+            }
+      		}
 }
 
 
@@ -238,14 +258,14 @@ class Cat {
 	}
 
 
-  	bounceCat(){
+bounceCat(){
     		if (this.x >= me.x-15 && this.x <= me.x+15 && this.y > me.y-40 && this.y < me.y+40){
       			this.speed = -this.speed;
             noLoop();
 
             noStroke();
 
-  fill(255, 255, 255);
+  fill(0);
   textSize(50);
   text("Game Over", 50, 250);
     		}
