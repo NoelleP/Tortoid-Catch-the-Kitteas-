@@ -9,22 +9,36 @@ function setup() {
 
   me = new Avatar(width/2, 300, 3);
 
+var button = createButton("Reset");
+button.mousePressed(resetSketch);
+}
+
+function resetSketch(){
+clear();
+  cat = new Cat();
+  calico = new Calico();
+  for (var i = 0; i < 100; i++){
+    var b = new Me(width / 2, 300, 3);
+    cat.addMe(b);
+    calico.addMe(b);
+
+}
 }
 
 function draw(){
-	background(220);
+background(220);
 
 
   me.drawMe();
   me.moveMe();
 
-  if (frameCount % 55 == 0) {
+  if (frameCount % 30 == 0) {
       let  c = new Cat(random(0,width), height-500, -3);
       cats.push(c);
       console.log(cats);
     }
 
-    if (frameCount % 70 == 0) {
+    if (frameCount % 50 == 0) {
    let  d = new Calico(random(0,width), height-500, -3);
    calicos.push(d);
    console.log(calicos);
