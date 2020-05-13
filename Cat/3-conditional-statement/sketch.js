@@ -10,7 +10,13 @@ function setup() {
 
   me = new Avatar(width/2, 300, 3);
 
-}
+  var button = createButton("Reset"); 
+    button.mousePressed(resetSketch); 
+}  
+
+  function resetSketch(){
+ location.reload(); 
+  }
 
 function draw(){
 	background(220);
