@@ -14,16 +14,9 @@ button.mousePressed(resetSketch);
 }
 
 function resetSketch(){
-clear();
-  cat = new Cat();
-  calico = new Calico();
-  for (var i = 0; i < 100; i++){
-    var b = new Me(width / 2, 300, 3);
-    cat.addMe(b);
-    calico.addMe(b);
+location.reload();
+}
 
-}
-}
 
 function draw(){
 background(220);
