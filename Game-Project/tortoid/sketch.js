@@ -8,6 +8,7 @@ var button;
 function setup() {
   createCanvas(400, 500);
 
+
   var button = createButton('Reset');
   button.mousePressed(reloadpage);
   me = new Avatar(width/2, 300, 3);
@@ -19,6 +20,11 @@ function reloadpage(){
  }
 function draw(){
 	background(220);
+
+  fill(0);
+  textSize(19);
+  text("hit the calico cats, avoid the tabby ones", 55,20);
+
 
 
   me.drawMe();
